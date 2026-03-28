@@ -1,0 +1,118 @@
+.sound-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.8) 0%, rgba(75, 0, 130, 0.8) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.sound-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(138, 43, 226, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.sound-toggle.enabled {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.8) 0%, rgba(255, 140, 0, 0.8) 100%);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+.sound-toggle.enabled:hover {
+  box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6);
+}
+
+.sound-icon {
+  font-size: 24px;
+  z-index: 2;
+  position: relative;
+}
+
+.sound-waves {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.wave {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.wave-1 {
+  width: 30px;
+  height: 30px;
+}
+
+.wave-2 {
+  width: 45px;
+  height: 45px;
+}
+
+.wave-3 {
+  width: 60px;
+  height: 60px;
+}
+
+.sound-toggle.disabled .wave {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sound-toggle {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sound-icon {
+    font-size: 20px;
+  }
+  
+  .wave-1 {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .wave-2 {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .wave-3 {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sound-toggle {
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .sound-icon {
+    font-size: 18px;
+  }
+}

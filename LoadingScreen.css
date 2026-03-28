@@ -1,0 +1,163 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #0a001a 0%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.loading-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.magical-forest-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(75, 0, 130, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+  z-index: -1;
+}
+
+.loading-text {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.loading-text h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #e6e6fa;
+  text-shadow: 
+    0 0 20px rgba(138, 43, 226, 0.8),
+    0 0 40px rgba(75, 0, 130, 0.4);
+  letter-spacing: 2px;
+  font-weight: 600;
+  min-height: 60px;
+}
+
+/* Smeagol Silhouette */
+.smeagol-silhouette {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.smeagol-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 
+    0 0 40px rgba(138, 43, 226, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  animation: eerie-glow 3s ease-in-out infinite;
+}
+
+@keyframes eerie-glow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 40px rgba(138, 43, 226, 0.6),
+      inset 0 0 30px rgba(0, 0, 0, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      0 0 60px rgba(138, 43, 226, 0.9),
+      inset 0 0 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.glowing-ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.3),
+    inset 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Loading Particles */
+.loading-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Loading Mist */
+.loading-mist {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mist-cloud {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loading-text h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .smeagol-silhouette {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .smeagol-eye {
+    width: 20px;
+    height: 28px;
+  }
+  
+  .glowing-ring {
+    width: 100px;
+    height: 100px;
+  }
+}

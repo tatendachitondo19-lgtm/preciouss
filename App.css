@@ -1,0 +1,256 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+}
+
+/* Forest/Cave Background */
+.forest-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(75, 0, 130, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+}
+
+/* Cave overlay effect */
+.cave-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    radial-gradient(ellipse at center top, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+    radial-gradient(ellipse at center bottom, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* Floating Particles */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Mist Effects */
+.mist {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* Glowing Lights */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Ring-inspired object */
+.ring-object {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 3px solid;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.ring-object:hover {
+  transform: scale(1.2) rotate(180deg);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+/* Hidden interaction areas */
+.hidden-wish {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 15;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.hidden-wish:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Wish popup */
+.wish-popup {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ffd700;
+  font-style: italic;
+  z-index: 20;
+  max-width: 200px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+/* Main container */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Title section */
+.title-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* Character container */
+.character-container {
+  position: relative;
+  margin: 40px 0;
+}
+
+.smeagol-character {
+  width: clamp(200px, 40vw, 300px);
+  height: clamp(200px, 40vw, 300px);
+  background: radial-gradient(circle, rgba(139, 69, 19, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 
+    0 0 50px rgba(138, 43, 226, 0.4),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.smeagol-eyes {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+}
+
+.eye {
+  width: 30px;
+  height: 40px;
+  background: radial-gradient(ellipse, #87ceeb 0%, #4682b4 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: blink 4s infinite;
+}
+
+.eye::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.speech-bubble {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(255, 255, 255, 0.95);
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .smeagol-character {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .speech-bubble {
+    font-size: 14px;
+    padding: 10px 15px;
+    top: -60px;
+  }
+}

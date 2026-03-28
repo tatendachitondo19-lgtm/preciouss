@@ -1,0 +1,262 @@
+.birthday-letter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.letter-container {
+  background: linear-gradient(135deg, #1a0033 0%, #2d1b69 50%, #1a0033 100%);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 
+    0 20px 60px rgba(138, 43, 226, 0.5),
+    0 0 100px rgba(255, 215, 0, 0.3),
+    inset 0 0 60px rgba(138, 43, 226, 0.2);
+  backdrop-filter: blur(15px);
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px 20px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  position: relative;
+}
+
+.letter-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 0;
+  color: #ffd700;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  line-height: 1.2;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ffd700;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  transform: scale(1.2) rotate(90deg);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.letter-content {
+  padding: 40px;
+  position: relative;
+  min-height: 400px;
+}
+
+.letter-text {
+  font-family: 'Crimson Text', serif;
+  color: #e6e6fa;
+  font-size: 18px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-salutation {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 25px;
+  font-style: italic;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.letter-paragraph {
+  margin-bottom: 20px;
+  text-align: justify;
+  text-indent: 20px;
+  position: relative;
+}
+
+.letter-paragraph:first-of-type {
+  text-indent: 0;
+}
+
+.letter-paragraph::first-letter {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  float: left;
+  line-height: 1;
+  margin-right: 8px;
+  margin-top: -5px;
+}
+
+.letter-closing {
+  margin-top: 30px;
+  text-align: right;
+  font-style: italic;
+  color: #ffd700;
+  font-size: 20px;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.signature {
+  display: block;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Magical Elements */
+.magical-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.letter-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.letter-sparkle {
+  position: absolute;
+  font-size: 16px;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  pointer-events: none;
+}
+
+.letter-footer {
+  padding: 20px 40px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.footer-text {
+  font-family: 'Cinzel', serif;
+  font-style: italic;
+  color: #ffd700;
+  font-size: 16px;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Scrollbar styling for letter */
+.letter-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.letter-container::-webkit-scrollbar-track {
+  background: rgba(138, 43, 226, 0.1);
+  border-radius: 4px;
+}
+
+.letter-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #8a2be2, #ffd700);
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .letter-container {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  
+  .letter-header {
+    padding: 20px 25px 15px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .letter-title {
+    font-size: 1.8rem;
+  }
+  
+  .letter-content {
+    padding: 25px;
+  }
+  
+  .letter-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .letter-salutation {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .letter-paragraph {
+    margin-bottom: 15px;
+    text-indent: 15px;
+  }
+  
+  .letter-paragraph::first-letter {
+    font-size: 22px;
+    margin-right: 6px;
+  }
+  
+  .letter-closing {
+    font-size: 18px;
+  }
+  
+  .signature {
+    font-size: 20px;
+  }
+  
+  .letter-footer {
+    padding: 15px 25px 20px;
+  }
+  
+  .footer-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-content {
+    padding: 20px 15px;
+  }
+  
+  .letter-text {
+    font-size: 15px;
+  }
+  
+  .letter-paragraph {
+    text-indent: 10px;
+  }
+}

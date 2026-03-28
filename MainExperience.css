@@ -1,0 +1,345 @@
+.main-experience {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background layers */
+.forest-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(75, 0, 130, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+}
+
+.cave-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    radial-gradient(ellipse at center top, transparent 0%, rgba(0, 0, 0, 0.7) 100%),
+    radial-gradient(ellipse at center bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+}
+
+/* Particles */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Glowing Orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(3px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Mist Effects */
+.mist {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 50%;
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Hidden Wishes */
+.hidden-wish {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 15;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.hidden-wish:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.hidden-wish::before {
+  content: '✨';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  font-size: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.hidden-wish:hover::before {
+  opacity: 0.8;
+}
+
+/* Wish Popups */
+.wish-popup {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  color: #ffd700;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 18px;
+  z-index: 25;
+  max-width: 250px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+/* Ring Objects */
+.ring-object {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 3px solid;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.ring-object:hover {
+  transform: scale(1.3) rotate(180deg);
+  box-shadow: 
+    0 0 40px rgba(255, 215, 0, 0.7),
+    inset 0 0 20px rgba(255, 215, 0, 0.3);
+  border-color: #ffd700;
+}
+
+.ring-object::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ring-object:hover::before {
+  opacity: 1;
+}
+
+/* Main Container */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Title Section */
+.title-section {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 25px;
+  text-shadow: 
+    0 0 40px rgba(138, 43, 226, 0.9),
+    0 0 60px rgba(75, 0, 130, 0.5);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  opacity: 0.9;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+/* Character Container */
+.character-container {
+  position: relative;
+  margin: 50px 0;
+}
+
+.smeagol-character {
+  width: clamp(250px, 45vw, 350px);
+  height: clamp(250px, 45vw, 350px);
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.4) 0%, transparent 60%),
+    radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 
+    0 0 60px rgba(138, 43, 226, 0.5),
+    inset 0 0 40px rgba(0, 0, 0, 0.6),
+    0 0 100px rgba(255, 215, 0, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.smeagol-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.speech-bubble {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 255, 0.95) 100%);
+  color: #333;
+  padding: 20px 25px;
+  border-radius: 25px;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 600;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid rgba(255, 255, 255, 0.95);
+}
+
+/* Picture Reveal */
+.precious-picture-reveal {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.picture-frame {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(138, 43, 226, 0.4),
+    0 0 80px rgba(255, 215, 0, 0.3);
+  border: 4px solid rgba(255, 215, 0, 0.6);
+  background: linear-gradient(45deg, rgba(138, 43, 226, 0.2), rgba(75, 0, 130, 0.2));
+  padding: 8px;
+}
+
+.precious-image {
+  width: clamp(200px, 50vw, 400px);
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+.picture-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  border-radius: 30px;
+  animation: glow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.picture-caption {
+  margin-top: 25px;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .smeagol-character {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .speech-bubble {
+    font-size: 14px;
+    padding: 15px 20px;
+    top: -80px;
+    white-space: normal;
+    max-width: 200px;
+  }
+  
+  .ring-object {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .hidden-wish {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .wish-popup {
+    font-size: 16px;
+    padding: 15px;
+    max-width: 200px;
+  }
+}
